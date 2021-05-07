@@ -1,8 +1,10 @@
-# ApiRTC-Angular sample And Tutorial
+# ApiRTC-Angular
 
-This project is a very simple **angular** application using **ApiRTC**. The following tutorial lists the steps that created the project.
+This project is a very simple **angular** application using **ApiRTC**. 
 
-## ApiRTC over Angular Tutorial
+Is is also a **tutorial** as this README lists the steps that created the project.
+
+## ApiRTC over Angular Steps by Steps Tutorial
 
 Starting from scratch, first install angular cli (command line interface) :
 
