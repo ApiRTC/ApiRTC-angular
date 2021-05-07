@@ -2,7 +2,9 @@
 
 This project is a very simple **angular** application using **ApiRTC**. 
 
-Is is also a **tutorial** as this README lists the steps that created the project.
+It is running **live** hosted on githud.io : https://apizee.github.io/ApiRTC-angular/.
+
+This is also a **tutorial** as this README lists the steps that created the project.
 
 ## ApiRTC over Angular Steps by Steps Tutorial
 
