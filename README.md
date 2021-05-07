@@ -1,28 +1,36 @@
 # ApiRTCAngular
 
-This project is a very simple angular application using ApiRTC.
+This project is a very simple **angular** application using **ApiRTC**. The following tutorial lists the steps that created the project.
 
-## Tutorial
+## ApiRTC over Angular Tutorial
 
-The following steps explain how this project was built :
+Starting from scratch, first install angular cli (command line interface) :
 
 `sudo npm install -g @angular/cli`
 
 (This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.)
 
+Create the new angular app :
+
 `ng new ApiRTC-angular`
 
 `cd ApiRTC-angular`
 
+Import angular-material that will be used to produce nice form :
+
 `ng add @angular/material`
+
+Import **ApiRTC** :
 
 `npm install @apizee/apirtc@latest --save`
 
-In src/app/app.module.ts add imports of modules for angular reactive forms and @angular/material,
+In src/app/app.module.ts add imports of modules for angular reactive forms and @angular/material.
 
-Replaced default content of src/app/app.component.html with a simple form to enter conversation name and tags for remote and local videos,
+Replaced default content of src/app/app.component.html with a simple form to enter conversation name and tags for remote and local videos.
 
 Copy code from first Conversation tutorial (https://github.com/apizee/ApiRTC-examples/blob/master/conferencing/js/conference.js) in src/app/app.component.ts and adapt to typescript and angular.
+
+Run `ng serve`
 
 The application can be opened in multiple tabs to test ApiRTC conversation with multiple peers. Original tutorial live demo at https://apizee.github.io/ApiRTC-examples/conferencing/index.html can also be used as a peer.
 
