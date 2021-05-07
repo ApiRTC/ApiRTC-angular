@@ -22,7 +22,9 @@ In src/app/app.module.ts add imports of modules for angular reactive forms and @
 
 Replaced default content of src/app/app.component.html with a simple form to enter conversation name and tags for remote and local videos,
 
-Copy code from first Conversation tutorial (https://github.com/apizee/ApiRTC-examples/blob/master/conferencing/js/conference.js) in src/app/app.component.ts and adapt to typescript and angular,
+Copy code from first Conversation tutorial (https://github.com/apizee/ApiRTC-examples/blob/master/conferencing/js/conference.js) in src/app/app.component.ts and adapt to typescript and angular.
+
+The application can be opened in multiple tabs to test ApiRTC conversation with multiple peers. Original tutorial live demo at https://apizee.github.io/ApiRTC-examples/conferencing/index.html can also be used as a peer.
 
 ## Development server
 
