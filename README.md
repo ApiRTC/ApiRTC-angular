@@ -28,11 +28,11 @@ Import **ApiRTC** :
 
 `npm install @apizee/apirtc@latest --save`
 
-In src/app/app.module.ts add imports of modules for angular reactive forms and @angular/material.
+In `src/app/app.module.ts` add imports of modules for angular reactive forms and @angular/material.
 
-Replaced default content of src/app/app.component.html with a simple form to enter conversation name and tags for remote and local videos.
+Replaced default content of `src/app/app.component.html` with a simple form to enter conversation name and tags for remote and local videos.
 
-Copy code from first Conversation tutorial (https://github.com/apizee/ApiRTC-examples/blob/master/conferencing/js/conference.js) in src/app/app.component.ts and adapt to typescript and angular.
+Copy code from first Conversation tutorial (https://github.com/apizee/ApiRTC-examples/blob/master/conferencing/js/conference.js) in `src/app/app.component.ts` and adapt to typescript and angular.
 
 Run `ng serve`
 
