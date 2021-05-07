@@ -1,4 +1,4 @@
-# ApiRTCAngular
+# ApiRTC-Angular sample And Tutorial
 
 This project is a very simple **angular** application using **ApiRTC**. The following tutorial lists the steps that created the project.
 
