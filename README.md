@@ -39,3 +39,17 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Deploy to 'docs' (for github pages deployment)
+
+`ng build --prod --output-path docs --base-href /ApiRTC-angular/`
+
+`cp docs/index.html docs/404.html`
+
+`git add docs/*`
+
+`git status`
+
+`git commit -a -m "deploy"`
+
+`git push origin main`
