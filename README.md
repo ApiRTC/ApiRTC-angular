@@ -36,7 +36,7 @@ Copy code from first Conversation tutorial (https://github.com/apizee/ApiRTC-exa
 
 Run `ng serve`
 
-The application can be opened in multiple tabs to test ApiRTC conversation with multiple peers. Original tutorial live demo at https://apizee.github.io/ApiRTC-examples/conferencing/index.html can also be used as a peer.
+The application can be opened in multiple tabs to test **ApiRTC** conversation with **multiple peers**.
 
 ## Development server
 
