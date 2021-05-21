@@ -23,8 +23,6 @@ export class AppComponent {
     return this.conversationFormGroup.get('name') as FormControl;
   }
 
-  conversation: any;
-
   getOrcreateConversation() {
     var localStream = null;
 
@@ -43,16 +41,16 @@ export class AppComponent {
       //==============================
       // 3/ CREATE CONVERSATION
       //==============================
-      this.conversation = session.getConversation(this.conversationNameFc.value);
+      const conversation = session.getConversation(this.conversationNameFc.value);
 
       //==========================================================
       // 4/ ADD EVENT LISTENER : WHEN NEW STREAM IS AVAILABLE IN CONVERSATION
       //==========================================================
-      this.conversation.on('streamListChanged', (streamInfo) => {
+      conversation.on('streamListChanged', (streamInfo: any) => {
         console.log("streamListChanged :", streamInfo);
         if (streamInfo.listEventType === 'added') {
           if (streamInfo.isRemote === true) {
-            this.conversation.subscribeToMedia(streamInfo.streamId)
+            conversation.subscribeToMedia(streamInfo.streamId)
               .then((stream) => {
                 console.log('subscribeToMedia success');
               }).catch((err) => {
@@ -64,7 +62,7 @@ export class AppComponent {
       //=====================================================
       // 4 BIS/ ADD EVENT LISTENER : WHEN STREAM IS ADDED/REMOVED TO/FROM THE CONVERSATION
       //=====================================================
-      this.conversation.on('streamAdded', (stream: any) => {
+      conversation.on('streamAdded', (stream: any) => {
         stream.addInDiv('remote-container', 'remote-media-' + stream.streamId, {}, false);
       }).on('streamRemoved', (stream: any) => {
         stream.removeFromDiv('remote-container', 'remote-media-' + stream.streamId);
@@ -79,7 +77,7 @@ export class AppComponent {
           video: true
         }
       })
-        .then((stream) => {
+        .then((stream: any) => {
 
           console.log('createStream :', stream);
 
@@ -91,12 +89,12 @@ export class AppComponent {
           //==============================
           // 6/ JOIN CONVERSATION
           //==============================
-          this.conversation.join()
+          conversation.join()
             .then((response: any) => {
               //==============================
-              // 7/ PUBLISH OWN STREAM
+              // 7/ PUBLISH LOCAL STREAM
               //==============================
-              this.conversation.publish(localStream);
+              conversation.publish(localStream);
             }).catch((err) => {
               console.error('Conversation join error', err);
             });
