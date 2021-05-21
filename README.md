@@ -28,6 +28,12 @@ This will be used to produce nice form ;)
 
 `npm install @apizee/apirtc@latest --save`
 
+And make the angular application include the library. In `angular.son`, under `projects, ApiRTC-angular, architect, build, options`, add :
+
+    "scripts": [
+        "node_modules/@apizee/apirtc/apiRTC.min.js"
+    ]
+
 ## Code the application
 
 Please check the code in this repo.
