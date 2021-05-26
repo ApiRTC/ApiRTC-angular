@@ -2,7 +2,7 @@
 
 This project is a very simple **angular** application using **ApiRTC**. 
 
-It is running **live** hosted on github.io : https://apizee.github.io/ApiRTC-angular/.
+It is running **live** hosted on github.io : https://apirtc.github.io/ApiRTC-angular/.
 
 This is also a **tutorial** as this README lists the steps that created the project from scratch :
 
@@ -44,7 +44,7 @@ Following is the exhaustive list of modified files and how :
 
 * Replaced default content of `src/app/app.component.html` with a simple form to enter conversation name and tags for remote and local videos.
 
-* Copied code from first Conversation tutorial (https://github.com/apizee/ApiRTC-examples/blob/master/conferencing/js/conference.js) in `src/app/app.component.ts` (https://github.com/apizee/ApiRTC-angular/blob/main/src/app/app.component.ts) and adapt to typescript and angular.
+* Copied code from first Conversation tutorial (https://github.com/apizee/ApiRTC-examples/blob/master/conferencing/js/conference.js) in `src/app/app.component.ts` (https://github.com/ApiRTC/ApiRTC-angular/blob/main/src/app/app.component.ts) and adapt to typescript and angular.
 
 ## Run in Development mode
 
