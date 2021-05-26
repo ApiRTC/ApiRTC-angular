@@ -1,6 +1,6 @@
 # ApiRTC over Angular Steps by Steps Tutorial
 
-This project is a very simple **angular** application using **ApiRTC**. 
+This project is a very simple **WebRTC** application developped in **angular** and using **ApiRTC**. 
 
 It is running **live** hosted on github.io : https://apirtc.github.io/ApiRTC-angular/.
 
