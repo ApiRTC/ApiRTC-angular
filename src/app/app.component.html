@@ -3,17 +3,18 @@
         <img alt="ApiRTC logo" src="./assets/ApiRTC.png" width="66" height="76" /> &
         <img alt="Angular logo" src="./assets/angular.svg" width="76" height="76" />
     </p>
-    <form [formGroup]="conversationFormGroup" (ngSubmit)="getOrcreateConversation()">
+    <form *ngIf="!conversation" [formGroup]="conversationFormGroup" (ngSubmit)="getOrcreateConversation()">
         <mat-form-field>
             <mat-label>Conversation Name</mat-label>
             <input type="text" matInput placeholder="abcd" formControlName="name">
         </mat-form-field>&nbsp;
         <button mat-raised-button color="primary" type="submit" [disabled]="!conversationFormGroup.valid" title="Get Or Create Conversation">GetOrCreateConversation</button>
     </form>
-    <div>
+    <div *ngIf="conversation" class="container">
         <div id="remote-container">
         </div>
-        <div id="local-container">
+        <div id="local-container" [ngClass]="{'over':remotesCounter>0}">
+            <video #localVideo autoplay playsinline></video>
         </div>
     </div>
 </div>

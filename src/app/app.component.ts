@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 declare var apiRTC: any;
+
+//import apiRTC from '@apizee/apirtc';
+//or
+//import { UserAgent } from '@apizee/apirtc';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +15,8 @@ declare var apiRTC: any;
 export class AppComponent {
 
   title = 'ApiRTC-angular';
+
+  @ViewChild("localVideo") videoRef: ElementRef;
 
   conversationFormGroup = this.fb.group({
     name: this.fb.control('', [Validators.required])
@@ -22,6 +28,9 @@ export class AppComponent {
   get conversationNameFc(): FormControl {
     return this.conversationFormGroup.get('name') as FormControl;
   }
+
+  conversation: any;
+  remotesCounter = 0;
 
   getOrcreateConversation() {
     var localStream = null;
@@ -42,6 +51,7 @@ export class AppComponent {
       // 3/ CREATE CONVERSATION
       //==============================
       const conversation = session.getConversation(this.conversationNameFc.value);
+      this.conversation = conversation;
 
       //==========================================================
       // 4/ ADD EVENT LISTENER : WHEN NEW STREAM IS AVAILABLE IN CONVERSATION
@@ -63,8 +73,10 @@ export class AppComponent {
       // 4 BIS/ ADD EVENT LISTENER : WHEN STREAM IS ADDED/REMOVED TO/FROM THE CONVERSATION
       //=====================================================
       conversation.on('streamAdded', (stream: any) => {
+        this.remotesCounter += 1;
         stream.addInDiv('remote-container', 'remote-media-' + stream.streamId, {}, false);
       }).on('streamRemoved', (stream: any) => {
+        this.remotesCounter -= 1;
         stream.removeFromDiv('remote-container', 'remote-media-' + stream.streamId);
       });
 
@@ -83,8 +95,11 @@ export class AppComponent {
 
           // Save local stream
           localStream = stream;
-          stream.removeFromDiv('local-container', 'local-media');
-          stream.addInDiv('local-container', 'local-media', {}, true);
+
+          //stream.removeFromDiv('local-container', 'local-media');
+          //stream.addInDiv('local-container', 'local-media', {}, true);
+          // OR
+          stream.attachToElement(this.videoRef.nativeElement);
 
           //==============================
           // 6/ JOIN CONVERSATION
