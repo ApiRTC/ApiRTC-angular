@@ -11,7 +11,7 @@
         <button mat-raised-button color="primary" type="submit" [disabled]="!conversationFormGroup.valid" title="Get Or Create Conversation">GetOrCreateConversation</button>
     </form>
     <div *ngIf="conversation" class="container">
-        <div id="remote-container">
+        <div id="remote-container" class="fullscreen">
         </div>
         <div id="local-container" [ngClass]="{'over':remotesCounter>0}">
             <video #localVideo autoplay playsinline></video>
