@@ -96,10 +96,8 @@ export class AppComponent {
           // Save local stream
           localStream = stream;
 
-          //stream.removeFromDiv('local-container', 'local-media');
-          //stream.addInDiv('local-container', 'local-media', {}, true);
-          // OR
-          stream.attachToElement(this.videoRef.nativeElement);
+          // Display stream
+          localStream.attachToElement(this.videoRef.nativeElement);
 
           //==============================
           // 6/ JOIN CONVERSATION
@@ -109,12 +107,15 @@ export class AppComponent {
               //==============================
               // 7/ PUBLISH LOCAL STREAM
               //==============================
-              conversation.publish(localStream);
-            }).catch((err) => {
+              conversation.publish(localStream).then((stream: any) => {
+                console.log('published', stream);
+              }).catch((err: any) => {
+                console.error('publish error', err);
+              });
+            }).catch((err: any) => {
               console.error('Conversation join error', err);
             });
-
-        }).catch((err) => {
+        }).catch((err: any) => {
           console.error('create stream error', err);
         });
     });
