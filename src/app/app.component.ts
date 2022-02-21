@@ -1,11 +1,7 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, ViewChild, ElementRef } from '@angular/core'
+import { FormBuilder, FormControl, Validators } from '@angular/forms'
 
-declare var apiRTC: any;
-
-//import apiRTC from '@apizee/apirtc';
-//or
-//import { UserAgent } from '@apizee/apirtc';
+import { Conversation, UserAgent, Session, Stream } from '@apirtc/apirtc'
 
 @Component({
   selector: 'app-root',
@@ -38,19 +34,19 @@ export class AppComponent {
     //==============================
     // 1/ CREATE USER AGENT
     //==============================
-    var ua = new apiRTC.UserAgent({
-      uri: 'apzkey:myDemoApiKey'
+    var userAgent = new UserAgent({
+      uri: 'apiKey:myDemoApiKey'
     });
 
     //==============================
     // 2/ REGISTER
     //==============================
-    ua.register().then((session) => {
+    userAgent.register().then((session: Session) => {
 
       //==============================
       // 3/ CREATE CONVERSATION
       //==============================
-      const conversation = session.getConversation(this.conversationNameFc.value);
+      const conversation: Conversation = session.getConversation(this.conversationNameFc.value);
       this.conversation = conversation;
 
       //==========================================================
@@ -61,8 +57,8 @@ export class AppComponent {
         if (streamInfo.listEventType === 'added') {
           if (streamInfo.isRemote === true) {
             conversation.subscribeToMedia(streamInfo.streamId)
-              .then((stream) => {
-                console.log('subscribeToMedia success');
+              .then((stream: Stream) => {
+                console.log('subscribeToMedia success', stream);
               }).catch((err) => {
                 console.error('subscribeToMedia error', err);
               });
@@ -72,7 +68,7 @@ export class AppComponent {
       //=====================================================
       // 4 BIS/ ADD EVENT LISTENER : WHEN STREAM IS ADDED/REMOVED TO/FROM THE CONVERSATION
       //=====================================================
-      conversation.on('streamAdded', (stream: any) => {
+      conversation.on('streamAdded', (stream: Stream) => {
         this.remotesCounter += 1;
         stream.addInDiv('remote-container', 'remote-media-' + stream.streamId, {}, false);
       }).on('streamRemoved', (stream: any) => {
@@ -83,13 +79,13 @@ export class AppComponent {
       //==============================
       // 5/ CREATE LOCAL STREAM
       //==============================
-      ua.createStream({
+      userAgent.createStream({
         constraints: {
           audio: true,
           video: true
         }
       })
-        .then((stream: any) => {
+        .then((stream: Stream) => {
 
           console.log('createStream :', stream);
 
@@ -103,11 +99,11 @@ export class AppComponent {
           // 6/ JOIN CONVERSATION
           //==============================
           conversation.join()
-            .then((response: any) => {
+            .then(() => {
               //==============================
               // 7/ PUBLISH LOCAL STREAM
               //==============================
-              conversation.publish(localStream).then((stream: any) => {
+              conversation.publish(localStream).then((stream: Stream) => {
                 console.log('published', stream);
               }).catch((err: any) => {
                 console.error('publish error', err);

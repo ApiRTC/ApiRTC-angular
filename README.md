@@ -28,12 +28,6 @@ This will be used to produce nice form ;)
 
 `npm install @apizee/apirtc@latest --save`
 
-And make the angular application include the library. In `angular.json`, under `projects, ApiRTC-angular, architect, build, options`, add :
-
-    "scripts": [
-        "node_modules/@apizee/apirtc/apiRTC.min.js"
-    ]
-
 ## Code the application
 
 Please check the code in this repo.
@@ -66,14 +60,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Deploy to 'docs' (for github pages deployment)
 
-`ng build --configuration production --output-path docs --base-href /ApiRTC-angular/`
-
-`cp docs/index.html docs/404.html`
-
-`git add docs/*`
-
-`git status`
-
-`git commit -a -m "deploy"`
-
-`git push origin main`
+```
+ng build --configuration production --output-path docs --base-href /ApiRTC-angular/`
+cp docs/index.html docs/404.html
+git add docs/*
+git status
+git commit -a -m "deploy"
+git push origin main
+```
