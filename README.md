@@ -61,7 +61,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Deploy to 'docs' (for github pages deployment)
 
 ```
-ng build --configuration production --output-path docs --base-href /ApiRTC-angular/`
+ng build --configuration production --output-path docs --base-href /ApiRTC-angular/
 cp docs/index.html docs/404.html
 git add docs/*
 git status
