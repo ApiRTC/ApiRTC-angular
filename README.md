@@ -26,7 +26,7 @@ This will be used to produce nice form ;)
 
 ## Import **ApiRTC**
 
-`npm install @apizee/apirtc@latest --save`
+`npm install @apirtc/apirtc@latest --save`
 
 ## Code the application
 
